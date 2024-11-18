@@ -1,0 +1,117 @@
+/*
+Soft orange: hsl(35, 77%, 62%)
+ Soft red: hsl(5, 85%, 63%)
+ Off-white: hsl(36, 100%, 99%)
+ Grayish blue: hsl(233, 8%, 79%)
+ Dark grayish blue: hsl(236, 13%, 42%)
+ Very dark blue: hsl(240, 100%, 5%)
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+body {
+  /* padding: 0 10%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  height: 100vh; */
+}
+.main-grid-container {
+    display: grid;
+    grid-template-columns: 12rem repeat(3, 1fr) 12rem;
+    grid-template-rows: 3.5rem repeat(3, 1fr) 3.5rem;
+}
+/*nav*/
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  border: 1px solid red;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul li a {
+  color: hsl(233, 8%, 79%);
+}
+/*body*/
+.orange-clr {
+  color: hsl(35, 77%, 62%);
+}
+.container {
+  margin: 2rem 0;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr; */
+  border: 1px solid red;
+  gap: 1.5rem;
+  /* height: 100vh; */
+  overflow: hidden;
+}
+.big-img {
+  grid-column: 2/5;
+}
+.big-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.info-container {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+}
+
+.info-container div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.info-container p {
+  color: hsl(36, 100%, 99%);
+}
+.info-container div:not(:last-child) {
+  border-bottom: 1px solid hsl(30, 5%, 31%);
+}
+.info-container div:not(:last-child) p {
+  margin-bottom: 2rem;
+}
+.new-card {
+  border: 1px solid green;
+  padding: 15px;
+  background-color: hsl(240, 100%, 5%);
+
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr; */
+}
+.about-web3 {
+  border: 1px solid blue;
+}
+.web3-article {
+  border: 1px solid black;
+}
+/* .info-card {
+  border: 1px solid rgb(255, 238, 0);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+} */
+.info-card-fig {
+  /* grid-row-start: span 3; */
+  border: 1px solid black;
+
+  display: flex;
+}
+/* .info-card-item {
+  border: 1px solid red;
+} */

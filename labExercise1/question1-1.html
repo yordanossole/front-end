@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Demos</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+
+      main {
+        border: 2px solid black;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form action="" method="post">
+        <h1>Input Demos</h1>
+        <label for="email">Email?</label> <br />
+        <input type="email" name="" id="email" placeholder="email" /> <br />
+
+        <label for="pw">Password</label> <br />
+        <input type="password" name="" id="pw" placeholder="password" />
+
+        <p>What is your gender?</p>
+        <label for="male">Male: </label>
+        <input type="radio" name="gender" id="male" value="male" />
+        <label for="female">Female: </label>
+        <input type="radio" name="gender" id="female" value="female" />
+
+        <p>What is your favorite color?</p>
+        <select name="color" id="color-picker">
+          <option value="red" selected>Red</option>
+          <option value="red">Blue</option>
+          <option value="red">White</option>
+          <option value="red">Yellow</option>
+          <option value="red">Green</option>
+        </select>
+
+        <p>What is on your mind</p>
+        <textarea name="comment" id="comment" cols="" rows="4"></textarea><br />
+
+        <input type="submit" name="" id="submit-btn" />
+        <br />
+        <br />
+      </form>
+    </main>
+  </body>
+</html>

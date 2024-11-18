@@ -1,0 +1,130 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+.orange-font {
+  color: orange !important;
+}
+a {
+  color: black;
+}
+.main-grid-container {
+  display: grid;
+  grid-template-columns: 12rem repeat(3, 1fr) 12rem;
+  grid-template-rows: 3.5rem repeat(3, 1fr) 3.5rem;
+  height: 100vh;
+  gap: 1rem;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 2/5;
+  grid-row: 1/2;
+}
+nav div {
+  width: 50%;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+}
+.large-img {
+  grid-column: 2/4;
+  grid-row: 2/3;
+}
+.large-img img {
+  width: 100%;
+}
+.new-card {
+  grid-column: 4/5;
+  grid-row: 2/4;
+  background-color: hsl(240, 100%, 5%);
+  color: hsl(233, 8%, 79%);
+  padding: 0.7rem 1rem 0;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.new-card-info-container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-card-info-container div {
+  padding-bottom: 1.5rem;
+}
+.new-card h3 {
+  font-weight: bold;
+  color: white !important;
+  font-size: 1rem;
+}
+.new-card-info-container div:not(:last-child) {
+  border-bottom: 1px solid white;
+}
+.about {
+  grid-column: 2/4;
+  grid-row: 3/4;
+  display: flex;
+  justify-content: space-around;
+}
+.disc,
+.future {
+  width: 50%;
+}
+.disc p {
+  line-height: 1.3rem;
+}
+.disc button {
+  padding: 0.5rem 1.5rem;
+  letter-spacing: 0.2rem;
+  background-color: rgb(255, 97, 97);
+  color: white;
+  border: none;
+  border-radius: 5%;
+  margin-top: 1rem;
+}
+.future p {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0 1rem;
+}
+.disc p {
+  color: rgb(105, 103, 103);
+}
+.card-1 {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
+.card-2 {
+  grid-column: 3/4;
+  grid-row: 4/5;
+}
+.card-3 {
+  grid-column: 4/5;
+  grid-row: 4/5;
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.card {
+  line-height: 1.5rem;
+}
+.card h2 {
+  color: rgb(105, 103, 103);
+}
+.card img {
+  width: 20%;
+  object-fit: cover;
+}
