@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Arrays:
+      // 1)
+      function flattenArray(nestedArr) {
+        return nestedArr.flat();
+      }
+
+      // 2)
+      function checkInclusion(arr, num) {
+        return arr.includes(num) ? true : false;
+      }
+
+      // 3)
+      function concatenateArrays(arr1, arr2) {
+        return arr1.concat(arr2);
+      }
+
+      // 4)
+      function sortStrings(arrStr) {
+        return arrStr.sort();
+      }
+
+      // 1)
+      let nestA = [[1, 2], [3, 4, 5], [6]];
+      let flaten = flattenArray(nestA);
+      console.log("1) Flattened Array:");
+      console.log(flaten);
+
+      // 2)
+      let b = [10, 20, 30];
+      console.log("2) Inclusion Checked:");
+      console.log(checkInclusion(b, 20));
+
+      // 3)
+      console.log("3) Array Concatenated:");
+      console.log(concatenateArrays(flaten, b));
+
+      // 4)
+      console.log("4) Array Sorted:");
+      let arrString = ["banana", "apple", "pineapple", "carrot"];
+      console.log(sortStrings(arrString));
+
+      // Strings:
+      // 1)
+      function mixUp(str1, str2) {
+        return (
+          str2.slice(0, 2) +
+          str1.slice(2) +
+          " " +
+          str1.slice(0, 2) +
+          str2.slice(2)
+        );
+      }
+      console.log("1) Mixed:");
+      console.log(mixUp("mix", "pod"));
+
+      // 2)
+      function verbing(str) {
+        if (str.endsWith("ing")) {
+          return str + "ly";
+        } else {
+          return str + "ing";
+        }
+      }
+      console.log("2) Verbing:");
+      console.log(verbing("do"));
+      console.log(verbing("spring"));
+
+      // 3)
+      function isPalindrome(str) {
+        return str == str.split("").reverse().join("");
+      }
+      console.log("3) Is Palindrome?");
+      console.log(isPalindrome("aba"));
+    </script>
+  </body>
+</html>
