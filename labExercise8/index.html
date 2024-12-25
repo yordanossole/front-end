@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yordanos</title>
+  </head>
+  <body>
+    <script>
+      // 1)
+      const findDetails = (array, value) => {
+        let firstIndex = array.indexOf(value);
+        let lastIndex = array.lastIndexOf(value);
+        let exists = array.includes(value);
+        return {
+          firstIndex: firstIndex,
+          lastIndex: lastIndex,
+          exists: exists,
+        };
+      };
+
+      let arr = [1, 2, 3, 2, 5];
+      console.log("1) ");
+      console.log(findDetails(arr, 2));
+
+      // 2)
+      function appearsMultipleTimes(arr, value) {
+        return arr.indexOf(value) != arr.lastIndexOf(value) ? true : false;
+      }
+
+      console.log("2) " + appearsMultipleTimes(arr, 2));
+
+      // 3)
+      function findAllPositions(arr, value) {
+        let i = 0;
+        let positions = [];
+        while (true) {
+          if (arr.indexOf(value, i) != -1) {
+            i = arr.indexOf(value, i) + 1;
+            positions.push(i - 1);
+          } else {
+            break;
+          }
+        }
+        return positions;
+      }
+
+      console.log("3) " + findAllPositions(arr, 2));
+
+      // 4)
+      let customers = [
+        {
+          id: 1001,
+          f_name: "Abby",
+          l_name: "Thomas",
+          gender: "M",
+          married: true,
+          age: 32,
+          expense: 500,
+          purchased: ["Shampoo", "Toys", "Book"],
+        },
+        {
+          id: 1002,
+          f_name: "Jerry",
+          l_name: "Thomas",
+          gender: "M",
+          married: true,
+          age: 64,
+          expense: 500,
+          purchased: ["Shampoo", "Toys", "Book"],
+        },
+        {
+          id: 1003,
+          f_name: "Dianna",
+          l_name: "Thomas",
+          gender: "F",
+          married: true,
+          age: 22,
+          expense: 500,
+          purchased: ["Shampoo", "Toys", "Book"],
+        },
+        {
+          id: 1004,
+          f_name: "Dev",
+          l_name: "Thomas",
+          gender: "M",
+          married: true,
+          age: 82,
+          expense: 500,
+          purchased: ["Shampoo", "Toys", "Book"],
+        },
+        {
+          id: 1005,
+          f_name: "Maria",
+          l_name: "Thomas",
+          gender: "F",
+          married: false,
+          age: 7,
+          expense: 500,
+          purchased: ["Shampoo", "Toys", "Book"],
+        },
+      ];
+
+      let senior = customers.filter((customer) =>
+        customer.age >= 60 ? true : false
+      );
+
+      console.log("4) seniors: ", senior);
+
+      // 5)
+      customers.map((customer) => {
+        if (customer.gender == "M") {
+          return (customer.full_name =
+            "Mr. " + customer.f_name + " " + customer.l_name);
+        } else {
+          return (customer.full_name =
+            "Ms. " + customer.f_name + " " + customer.l_name);
+        }
+      });
+
+      console.log("5) ");
+      console.log(customers);
+
+      // 6)
+      const countLetter = (names) => {
+        let result = [];
+        result.push(names.map((name) => name.length));
+        return result;
+      };
+
+      let names = ["abebe", "bekele", "tesema", "Yordanos", "Lema", "Nafargi"];
+      console.log("6) Arrays of length: " + countLetter(names));
+    </script>
+  </body>
+</html>

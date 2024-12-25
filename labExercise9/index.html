@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: hsl(222, 26%, 31%);
+      color: hsl(0, 0%, 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .calculator {
+      background-color: hsl(223, 31%, 20%);
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+    }
+    .calculator-display {
+      background-color: hsl(224, 36%, 15%);
+      border-radius: 5px;
+      text-align: right;
+      padding: 10px;
+      font-size: 1.5rem;
+      color: hsl(0, 0%, 100%);
+      margin-bottom: 20px;
+    }
+    .calculator-button {
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .btn-digit {
+      background-color: hsl(225, 21%, 49%);
+      color: hsl(0, 0%, 100%);
+      box-shadow: 0px 3px hsl(224, 28%, 35%);
+    }
+    .btn-operator {
+      background-color: hsl(6, 63%, 50%);
+      color: hsl(0, 0%, 100%);
+      box-shadow: 0px 3px hsl(6, 70%, 34%);
+    }
+    .btn-equal {
+      background-color: hsl(6, 63%, 50%);
+      color: hsl(0, 0%, 100%);
+      box-shadow: 0px 3px hsl(6, 70%, 34%);
+    }
+    .btn-clear {
+      background-color: hsl(30, 25%, 89%);
+      color: hsl(221, 14%, 31%);
+      box-shadow: 0px 3px hsl(28, 16%, 65%);
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div id="display" class="calculator-display">0</div>
+    <div class="row">
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-clear w-100" onclick="clearDisplay()">C</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-operator w-100" onclick="appendDigit('(')">(</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-operator w-100" onclick="appendDigit(')')">)</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-operator w-100" onclick="backspace()">⌫</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('7')">7</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('8')">8</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('9')">9</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-operator w-100" onclick="setOperation('/')">/</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('4')">4</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('5')">5</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('6')">6</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-operator w-100" onclick="setOperation('*')">*</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('1')">1</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('2')">2</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('3')">3</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-operator w-100" onclick="setOperation('-')">-</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('0')">0</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-digit w-100" onclick="appendDigit('.')">.</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-equal w-100" onclick="calculateResult()">=</button>
+      </div>
+      <div class="col-3 mb-2">
+        <button class="calculator-button btn-operator w-100" onclick="setOperation('+')">+</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+    let currentOperation = null;
+    let firstOperand = null;
+
+    function appendDigit(digit) {
+      if (display.innerText === '0') {
+        display.innerText = digit;
+      } else {
+        display.innerText += digit;
+      }
+    }
+
+    function clearDisplay() {
+      display.innerText = '0';
+      currentOperation = null;
+      firstOperand = null;
+    }
+
+    function setOperation(operator) {
+      firstOperand = parseFloat(display.innerText);
+      currentOperation = operator;
+      display.innerText = '0';
+    }
+
+    function backspace() {
+      display.innerText = display.innerText.slice(0, -1) || '0';
+    }
+
+    function calculateResult() {
+      if (currentOperation && firstOperand !== null) {
+        let secondOperand = parseFloat(display.innerText);
+        let result;
+        switch (currentOperation) {
+          case '+':
+            result = firstOperand + secondOperand;
+            break;
+          case '-':
+            result = firstOperand - secondOperand;
+            break;
+          case '*':
+            result = firstOperand * secondOperand;
+            break;
+          case '/':
+            result = secondOperand !== 0 ? firstOperand / secondOperand : 'Error';
+            break;
+        }
+        display.innerText = result;
+        currentOperation = null;
+        firstOperand = null;
+      }
+    }
+  </script>
+</body>
+</html>
